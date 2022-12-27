@@ -15,11 +15,28 @@
   <div id="app"></div>
 
   <script type="text/babel">
-    const Button = () => {
-      return <button>Comprar</button>
-    } 
 
-    ReactDOM.render(<Button />, document.getElementById('app'))
+    const Button = () => {
+        return <button>Comprar</button>
+    }
+
+    const Titulo = () => {
+      const numero = Math.random() * 1000
+      return <h1>meu Titulo {numero}</h1>
+    }
+
+    const App = () => {
+      return <div>Meu App
+        <Titulo />
+        <Button />
+        <div>
+        Compre aqui também. 
+        <Button />  
+        </div>
+        </div>
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'))
   </script>
 </body>
 
