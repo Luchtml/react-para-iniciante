@@ -16,8 +16,31 @@
 
   <script type="text/babel">
 
+    const Compras = () => {
+      const [contador, setContador] = React.useState(0)
+      console.log(contador)
+      function Comprar() {
+        setContador(contador + 1)
+      }
+
+      return (
+        <div>
+          <button  onClick={Comprar}>Comprar</button>
+          <p>Total: {contador}</p>
+          <p>Preço: R$ {contador * 250}</p>  
+        </div>
+      )
+    }
+
+
+
     const Button = () => {
-        return <button>Comprar</button>
+
+      function handleClick(event) {
+        console.log(event.target.innerText)
+      }
+
+      return <button onClick={handleClick}>Comprar</button>
     }
 
     const Titulo = () => {
@@ -27,13 +50,14 @@
 
     const App = () => {
       return <div>Meu App
+        <Compras />
         <Titulo />
         <Button />
         <div>
-        Compre aqui também. 
-        <Button />  
+          Compre aqui também.
+          <Button />
         </div>
-        </div>
+      </div>
     }
 
     ReactDOM.render(<App />, document.getElementById('app'))
